@@ -24,7 +24,7 @@ git clone https://github.com/Ashwath1999/vaccination-portal-backend
 1.	Create MySQL Database and run this following command<br>
     **CREATE DATABASE vaccination_portal**<br>
 2.	Configure MySQL connection<br>
-**Edit src/main/resources/application.properties**<br><br>
+**Edit src/main/resources/application.properties**<br>
 *spring.datasource.url=jdbc:mysql://localhost:3306/vaccination_portal<br>
 spring.datasource.username=root<br>
 spring.datasource.password=yourpassword<br>*
