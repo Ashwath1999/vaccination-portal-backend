@@ -8,6 +8,8 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -21,23 +23,26 @@ public class VaccinationDrive {
     @Id
     @JoinColumn(name = "drive_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("id")
     private Long driveId;
 
     @Column(name = "vaccine_name", nullable = false)
+    @JsonProperty("vaccine_name")
     private String vaccineName;
 
     @Column(name = "drive_date", nullable = false)
+    @JsonProperty("drive_date")
     private LocalDate driveDate;
 
     @Column(name = "available_doses", nullable = false)
+    @JsonProperty("available_doses")
     private int availabeDoses;
-
 
     @ElementCollection
     @CollectionTable(name = "vaccination_drive_grades", joinColumns = @JoinColumn(name = "drive_id"))
     @Column(name = "grade")
+    @JsonProperty("applicable_grades")
     private List<Integer> applicableGrades;
-
 
     protected VaccinationDrive() {
     }
@@ -49,7 +54,6 @@ public class VaccinationDrive {
         this.applicableGrades = applicableGrades;
     }
     
-
     public long getId() {
         return driveId;
     }

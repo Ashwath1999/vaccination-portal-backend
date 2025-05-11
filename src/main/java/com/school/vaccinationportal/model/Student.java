@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.Enumerated;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.school.vaccinationportal.enums.Gender;
 
 @Entity
@@ -17,28 +18,27 @@ public class Student {
     @Id
     @Column(name = "student_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("id")
     private Long studentId;
 
     @Column(name = "student_name", nullable = false)
     private String name;
 
     @Column(name = "student_grade", nullable = false)
-    private String grade;
+    private int grade;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "student_gender", nullable = false)
     private Gender gender;
 
-
     protected Student() {
     }
 
-    public Student(String name, Gender gender, String grade) {
+    public Student(String name, Gender gender, int grade) {
         this.name = name;
         this.gender = gender;
         this.grade = grade;
     }
-
 
     public long getId() {
         return studentId;
@@ -48,7 +48,7 @@ public class Student {
         return name;
     }
 
-    public String getGrade() {
+    public int getGrade() {
         return grade;
     }
 
@@ -60,7 +60,7 @@ public class Student {
         this.name = name;
     }
 
-    public void setGrade(String grade) {
+    public void setGrade(int grade) {
         this.grade = grade;
     }
 
