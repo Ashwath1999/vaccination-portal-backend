@@ -1,6 +1,3 @@
-# vaccination-portal-backend
-Uses spring boot to implement backend functionalities 
-
 # Spring Boot - Student Vaccination Portal
 
 A backend application built with Spring Boot for student vaccination portal
